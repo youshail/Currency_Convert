@@ -1,6 +1,9 @@
 package com.example.currency.convert.xml.compose.ui
 
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.currency.convert.xml.compose.common.CurrencyEvent
@@ -23,6 +26,9 @@ class CurrencyViewModel @Inject constructor(
 ) : ViewModel() {
 
 
+    var txtResult by mutableStateOf("")
+
+    var isVisible by mutableStateOf(false)
 
     private val _currencyState = MutableStateFlow<CurrencyEvent>(CurrencyEvent.Empty)
     val currencyState: StateFlow<CurrencyEvent> = _currencyState
