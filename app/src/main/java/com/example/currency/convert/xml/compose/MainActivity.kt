@@ -45,18 +45,20 @@ class MainActivity : AppCompatActivity() {
                 when(event){
                     CurrencyEvent.Empty -> Unit
                     CurrencyEvent.Loading -> {
-                        viewModel.isVisible = true
+                        viewModel.onIsVisibleChange(true)
+                        //viewModel.isVisible = true
 
                     }
                     is CurrencyEvent.Failure -> {
-                        viewModel.isVisible = false
+                        viewModel.onIsVisibleChange(false)
                         //binding.txtResult.setTextColor(Color.RED)
-                        viewModel.txtResult = event.errorText
+                        viewModel.onConvertClick(event.errorText)
+
                     }
                     is CurrencyEvent.Success -> {
-                        viewModel.isVisible = false
+                        viewModel.onIsVisibleChange(false)
                         //binding.txtResult.setTextColor(Color.BLACK)
-                        viewModel.txtResult = event.resultText
+                        viewModel.onConvertClick(event.resultText)
                     }
                 }
             }

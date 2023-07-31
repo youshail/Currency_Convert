@@ -27,12 +27,21 @@ class CurrencyViewModel @Inject constructor(
 
 
     var txtResult by mutableStateOf("")
+    private set
 
     var isVisible by mutableStateOf(false)
+    private set
 
     private val _currencyState = MutableStateFlow<CurrencyEvent>(CurrencyEvent.Empty)
     val currencyState: StateFlow<CurrencyEvent> = _currencyState
 
+    fun onIsVisibleChange(value: Boolean){
+        isVisible = value
+    }
+
+    fun onConvertClick(result: String){
+        txtResult = result
+    }
 
     fun convert(
         amountStr: String,
