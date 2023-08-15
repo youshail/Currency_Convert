@@ -256,7 +256,6 @@ private fun TitleApp(
 @Composable
 fun SpinnerCurrency(
     modifier: Modifier,
-    viewModel: CurrencyViewModel,
 
 ) {
 
