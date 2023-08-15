@@ -6,7 +6,9 @@ plugins {
 }
 
 android {
+
     namespace 'com.example.currency.convert.xml.compose'
+
     compileSdk 33
 
     defaultConfig {
